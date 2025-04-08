@@ -1,49 +1,218 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<section class="relative bg-gradient-to-b from-[#CEF3F5] to-white pt-16">
+		<div class="container mx-auto px-4 py-16 md:py-24">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+				<div class="text-center md:text-left">
+					<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+						<span class="text-brand-red block mb-4">Don't raise kids to be great kids</span>
+						<span class="text-brand-teal">Raise kids to be great adults!</span>
+					</h1>
+					<p class="text-gray-600 text-lg md:text-xl mb-8 max-w-xl mx-auto md:mx-0">
+						You need more than school + authoritative parenting.
+						You need an online resource + engagement tools to guide you in your journey.
+					</p>
+				</div>
+				<div class="relative max-w-lg mx-auto">
+					<div class="absolute inset-0 bg-gradient-to-br from-[#CEF3F5]/50 to-transparent rounded-2xl"></div>
+					<img 
+						src="/images/heroimage-kids-as-great-adults.jpg" 
+						alt="Raising kids to be great adults" 
+						class="rounded-2xl shadow-xl w-full"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+				<div class="order-2 md:order-1 relative max-w-lg mx-auto">
+					<div class="absolute inset-0 bg-gradient-to-br from-[#CEF3F5]/50 to-transparent rounded-2xl"></div>
+					<img 
+						src="/images/kid-to-businesswoman.webp" 
+						alt="Journey from childhood to successful professional" 
+						class="rounded-2xl shadow-xl w-full"
+					/>
+				</div>
+				<div class="order-1 md:order-2">
+					<h2 class="text-3xl md:text-4xl font-bold mb-6">
+						<span class="text-brand-teal">Nurturing Dreams </span>
+						<span class="text-brand-red">Into Reality</span>
+					</h2>
+					<p class="text-gray-600 text-lg mb-6">
+						Every child has unlimited potential. Our mission is to help parents and educators unlock that potential, guiding children on their journey from playful curiosity to professional success.
+					</p>
+					<p class="text-gray-600 text-lg">
+						Through innovative learning approaches and practical life skills development, we're creating a foundation for tomorrow's leaders, innovators, and changemakers.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 bg-gradient-to-b from-white to-[#CEF3F5]/30">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl md:text-4xl font-bold text-center text-brand-teal mb-16">
+				Visionary Learning for Emerging Adults
+			</h2>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<h3 class="text-xl font-bold text-brand-red mb-4">Empowerment</h3>
+					<p class="text-gray-600">
+						We provide parents and youth with the tools and insights to navigate the complexities of modern life.
+					</p>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<h3 class="text-xl font-bold text-brand-red mb-4">Innovation</h3>
+					<p class="text-gray-600">
+						Through unique educational resources, we foster skills, responsibility, and a lifelong love for learning.
+					</p>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<h3 class="text-xl font-bold text-brand-red mb-4">Connection</h3>
+					<p class="text-gray-600">
+						Join a growing community of forward-thinking parents and educators committed to raising exemplary adults.
+					</p>
+				</div>
+			</div>
+
+			<div class="text-center">
+				<h3 class="text-2xl font-bold text-brand-teal mb-4">Join Our Movement</h3>
+				<p class="text-gray-600 text-lg max-w-3xl mx-auto">
+					Together, we can shape a brighter future. Dive into our resources, engage with our community, and start the journey of empowerment today.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl md:text-4xl font-bold text-center text-brand-teal mb-6">
+				Aiming to be Great Adults
+			</h2>
+			<p class="text-gray-600 text-lg text-center max-w-3xl mx-auto mb-16">
+				In society, the definition of a <span class="font-semibold">"great adult"</span> can vary based on cultural, social, and personal values. However, there are several universally recognized qualities and attributes that are often associated with the concept of a great adult:
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">😊</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Effective Communication Skills</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Capable of expressing thoughts clearly and respectfully.</li>
+						<li>- Listens actively and communicates in a way that fosters understanding and collaboration.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">💝</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Responsibility and Reliability</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Takes ownership of their actions and decisions.</li>
+						<li>- Reliable and dependable in both personal and professional contexts.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">💝</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Emotional Maturity</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Demonstrates emotional intelligence, including self-awareness, empathy, and the ability to regulate emotions.</li>
+						<li>- Shows resilience in the face of challenges and the ability to cope with stress in healthy ways.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">💝</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Financial Stability and Management</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Understands the importance of financial responsibility.</li>
+						<li>- Capable of managing personal finances, including budgeting, saving, and investing.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">🎯</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Professional Competence and Continuous Learning</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Maintains a healthy balance between work and personal life.</li>
+						<li>- Prioritizes physical and mental health through a balanced lifestyle.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">🎯</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Leadership and Influence</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Actively contributes to the welfare of the community.</li>
+						<li>- Demonstrates social responsibility and environmental awareness.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">💝</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Community Engagement and Social Responsibility</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Positively influences others, whether in a formal leadership role or through personal interactions.</li>
+						<li>- Inspires and motivates others towards positive change.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">💖</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Ethical and Moral Integrity</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Exhibits honesty, fairness, and integrity in interactions with others.</li>
+						<li>- Adheres to ethical principles in various aspects of life.</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-[#CEF3F5]">
+					<div class="text-brand-teal text-2xl mb-4">🎯</div>
+					<h3 class="text-xl font-bold text-brand-red mb-4">Healthy Lifestyle and Self-Care</h3>
+					<ul class="space-y-3 text-gray-600">
+						<li>- Shows respect and consideration for the diversity of people and opinions.</li>
+						<li>- Fosters inclusive and respectful environments.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="relative py-24">
+		<div class="absolute inset-0">
+			<img 
+				src="/images/day-care-final-cta-image-background.jpg" 
+				alt="Parent and child learning together" 
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+		<div class="container mx-auto px-4 relative">
+			<div class="max-w-4xl mx-auto text-center text-white">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
+					Parents play a crucial role in nurturing<br/>
+					and sustaining the children's curiosity
+				</h2>
+				<p class="text-lg md:text-xl mb-12 leading-relaxed">
+					Curiosity is one of the most valuable and innate characteristics of a child. It's the driving force behind learning and exploration and is fundamental to cognitive development. Curious children are more likely to ask questions, seek new experiences, and ultimately gain a deeper understanding of the world around them.
+				</p>
+				<p class="text-lg md:text-xl mb-12 leading-relaxed">
+					This natural inquisitiveness, when nurtured and guided, can lead to a lifelong love of learning and discovery. Encouraging a child's curiosity is crucial in helping them develop critical thinking skills, creativity, and a sense of wonder that enriches their entire learning process.
+				</p>
+				<a href="/about" class="inline-block bg-brand-teal text-white px-8 py-4 rounded-lg hover:bg-brand-teal-dark transition font-semibold text-lg">
+					Read More...
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

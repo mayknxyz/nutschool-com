@@ -1,8 +1,5 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
@@ -11,101 +8,46 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Blog - NutSchool" description="Insights and resources for raising great adults">
+	<div class="relative pt-20 bg-gradient-to-b from-[#CEF3F5] to-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h1 class="text-5xl md:text-6xl font-bold mb-6">Blog</h1>
+				<p class="text-gray-600 text-lg md:text-xl mb-8">
+					Discover insights, strategies, and stories about raising children to become exceptional adults.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<section class="py-4 pb-12 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{posts.map((post) => (
+					<article class="bg-[#C1E4E6] rounded-2xl shadow-lg border border-[#CEF3F5] overflow-hidden transition-transform hover:scale-[1.02] h-[36rem]">
+						<a href={`/blog/${post.id}/`} class="block h-full">
+							<div class="h-1/2">
+								<img 
+									src={post.data.heroImage} 
+									alt="" 
+									class="w-full h-full object-cover"
+								/>
+							</div>
+							<div class="p-8 h-1/2">
+								<p class="text-[#101827] text-sm mb-3">
+									<FormattedDate date={post.data.pubDate} />
+								</p>
+								<h2 class="text-2xl font-bold text-[#101827] mb-4 line-clamp-2">
+									{post.data.title}
+								</h2>
+								<p class="text-[#101827] text-lg line-clamp-4">
+									{post.data.description}
+								</p>
+							</div>
+						</a>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>
