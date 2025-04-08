@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const courses = [
+	{
+		title: "Trading Fundamentals",
+		description: "Master the basics of trading, including market analysis, risk management, and trading psychology.",
+		duration: "8 weeks",
+		level: "Beginner",
+		price: "$299",
+		features: ["Live sessions", "Trading exercises", "Market analysis tools", "Community access"]
+	},
+	{
+		title: "Advanced Trading Strategies",
+		description: "Learn advanced trading techniques, including technical analysis, fundamental analysis, and portfolio management.",
+		duration: "12 weeks",
+		level: "Intermediate",
+		price: "$499",
+		features: ["Advanced charting", "Strategy development", "Risk management", "1-on-1 mentoring"]
+	},
+	{
+		title: "Professional Trading Masterclass",
+		description: "Become a professional trader with our comprehensive masterclass covering all aspects of trading.",
+		duration: "16 weeks",
+		level: "Advanced",
+		price: "$999",
+		features: ["Personal trading plan", "Advanced strategies", "Market psychology", "Lifetime access"]
+	}
+];
+---
+
+<Layout title="Trading Courses - NutSchool">
+	<section class="py-20">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6">Trading Courses</h1>
+				<p class="text-xl text-gray-600 max-w-2xl mx-auto">Choose the perfect course to start your trading journey. From beginners to advanced traders, we have something for everyone.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{courses.map(course => (
+					<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+						<div class="p-6">
+							<h3 class="text-2xl font-bold mb-2">{course.title}</h3>
+							<p class="text-gray-600 mb-4">{course.description}</p>
+							<div class="flex items-center gap-4 mb-4">
+								<span class="text-sm text-gray-500">Duration: {course.duration}</span>
+								<span class="text-sm text-gray-500">Level: {course.level}</span>
+							</div>
+							<ul class="space-y-2 mb-6">
+								{course.features.map(feature => (
+									<li class="flex items-center text-gray-600">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" viewBox="0 0 20 20" fill="currentColor">
+											<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+										</svg>
+										{feature}
+									</li>
+								))}
+							</ul>
+							<div class="flex items-center justify-between">
+								<span class="text-2xl font-bold text-primary">{course.price}</span>
+								<a href="/enroll" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-secondary transition">Enroll Now</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Course Comparison Section -->
+	<section class="py-20 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-12">Course Comparison</h2>
+			<div class="overflow-x-auto">
+				<table class="w-full">
+					<thead>
+						<tr class="bg-white">
+							<th class="p-4 text-left">Features</th>
+							{courses.map(course => (
+								<th class="p-4 text-left">{course.title}</th>
+							))}
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-t">
+							<td class="p-4">Duration</td>
+							{courses.map(course => (
+								<td class="p-4">{course.duration}</td>
+							))}
+						</tr>
+						<tr class="border-t">
+							<td class="p-4">Level</td>
+							{courses.map(course => (
+								<td class="p-4">{course.level}</td>
+							))}
+						</tr>
+						<tr class="border-t">
+							<td class="p-4">Price</td>
+							{courses.map(course => (
+								<td class="p-4">{course.price}</td>
+							))}
+						</tr>
+						<tr class="border-t">
+							<td class="p-4">Live Sessions</td>
+							{courses.map(course => (
+								<td class="p-4">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+									</svg>
+								</td>
+							))}
+						</tr>
+						<tr class="border-t">
+							<td class="p-4">Community Access</td>
+							{courses.map(course => (
+								<td class="p-4">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+									</svg>
+								</td>
+							))}
+						</tr>
+						<tr class="border-t">
+							<td class="p-4">1-on-1 Mentoring</td>
+							{courses.map((course, index) => (
+								<td class="p-4">
+									{index > 0 ? (
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+											<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+										</svg>
+									) : (
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+											<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+										</svg>
+									)}
+								</td>
+							))}
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</Layout> 
